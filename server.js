@@ -7,10 +7,10 @@
   const http = require("http");
   const fs = require("fs");
   const cors = require("cors");
-  // const mongoose = require("mongoose");
+  const mongoose = require("mongoose");
   const cookieParser = require("cookie-parser");
   // const bodyParser = require("body-parser");
-  // const config = require("./config/config.js");
+  const config = require("./config/config.js");
   // const modelsPath = __dirname + "/app/models/";
 
   app.use(function(req, res, next) {
@@ -64,27 +64,28 @@
   app.use(cors());
   app.use(cookieParser());
 
-  // app.use("/assets", express.static("assets"));
-
+  const mainDB = mongoose.createConnection(config.db_main, {
+    useNewUrlParser: true
+  });
   // mongoose.connect(config.db_main, {
   //   useNewUrlParser: true
   // });
   // const mainDB = mongoose.connection;
-  // mainDB.on("error", function(err) {
-  //   if (err) {
-  //     console.log("MainDB");
-  //     console.log(err);
-  //   }
-  // });
-  // mainDB.once("open", function callback() {
-  //   console.info("CLIENT DB connected successfully");
-  // });
+  mainDB.on("error", function(err) {
+    if (err) {
+      console.log("MainDB");
+      console.log(err);
+    }
+  });
+  mainDB.once("open", function callback() {
+    console.info("CLIENT DB connected successfully");
+  });
 
-  // module.exports = {
-  //   main: mainDB
-  // };
+  module.exports = {
+    main: mainDB
+  };
 
-  require("./app/routes/covid.route")(app);
+  require("./app/covid/covid.route")(app);
   // require("./app/routes/floorsData.route")(app);
   // require("./app/routes/payments.route")(app);
   // require("./app/routes/duration.route")(app);

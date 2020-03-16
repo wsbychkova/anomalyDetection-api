@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  let covid = require("../controllers/covid.controller");
+  let covid = require("./covid.controller");
 
   module.exports = function(app) {
     // app.post("/api/buildings", buildings.createBuildings);
