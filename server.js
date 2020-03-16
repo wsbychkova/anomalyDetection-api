@@ -11,7 +11,7 @@
   const cookieParser = require("cookie-parser");
   // const bodyParser = require("body-parser");
   const config = require("./config/config.js");
-  // const modelsPath = __dirname + "/app/models/";
+  const modelsPath = __dirname + "/app/models/";
 
   app.use(function(req, res, next) {
     var responseSettings = {
@@ -57,9 +57,9 @@
     process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || "localhost"
   );
 
-  // fs.readdirSync(modelsPath).forEach(function(file) {
-  //   require(modelsPath + "/" + file);
-  // });
+  fs.readdirSync(modelsPath).forEach(function(file) {
+    require(modelsPath + "/" + file);
+  });
 
   app.use(cors());
   app.use(cookieParser());
@@ -67,10 +67,6 @@
   const mainDB = mongoose.createConnection(config.db_main, {
     useNewUrlParser: true
   });
-  // mongoose.connect(config.db_main, {
-  //   useNewUrlParser: true
-  // });
-  // const mainDB = mongoose.connection;
   mainDB.on("error", function(err) {
     if (err) {
       console.log("MainDB");
