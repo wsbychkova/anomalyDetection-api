@@ -5,7 +5,8 @@ let Covid = new Schema({
   province: String,
   country: String,
   coordinates: Object,
-  observed_data: Array
+  observed_data: Array,
+  totalValue: Number
 });
 
 
