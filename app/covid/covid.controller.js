@@ -28,7 +28,6 @@
       const covidFindings = await csv().fromFile(csvFilePath);
       const newCovidData = await Covid.create(
         covidFindings.map(covid => {
-          console.log('covid :', covid);
           const data = compareWithDateFormat(covid)
           const maxValue = Math.max.apply(Math, data.map((o) => o.value))
           return {
@@ -40,7 +39,6 @@
           }
         })
       )
-      console.log('newCovidData :', newCovidData);
       res.status(200).send(newCovidData);
     } catch (err) {
       res.status(400).send(err);

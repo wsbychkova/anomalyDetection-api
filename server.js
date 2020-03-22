@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   // require("dotenv").config();
@@ -13,7 +13,7 @@
   const config = require("./config/config.js");
   const modelsPath = __dirname + "/app/models/";
 
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
     var responseSettings = {
       AccessControlAllowOrigin: req.headers.origin,
       AccessControlAllowHeaders:
@@ -57,7 +57,7 @@
     process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || "localhost"
   );
 
-  fs.readdirSync(modelsPath).forEach(function(file) {
+  fs.readdirSync(modelsPath).forEach(function (file) {
     require(modelsPath + "/" + file);
   });
 
@@ -67,7 +67,7 @@
   const mainDB = mongoose.createConnection(config.db_main, {
     useNewUrlParser: true
   });
-  mainDB.on("error", function(err) {
+  mainDB.on("error", function (err) {
     if (err) {
       console.log("MainDB");
       console.log(err);
@@ -82,21 +82,11 @@
   };
 
   require("./app/covid/covid.route")(app);
-  // require("./app/routes/floorsData.route")(app);
-  // require("./app/routes/payments.route")(app);
-  // require("./app/routes/duration.route")(app);
-  // require("./app/routes/photo.route")(app);
-  // require("./app/routes/rentSettings.route")(app);
-  // require("./app/routes/description.route")(app);
-  // require("./app/routes/buildings.route")(app);
-  // require("./app/routes/userChoice.route")(app);
-  // require("./app/routes/person.route")(app);
-  // require("./app/routes/calendars.route")(app);
-  // require("./app/routes/stripe.route")(app);
+  require("./app/matrix/matrix.route")(app);
 
   const httpServer = http.createServer(app);
 
-  httpServer.listen(app.get("port"), function() {
+  httpServer.listen(app.get("port"), function () {
     console.log("Magic happens on port " + app.get("port"));
   });
 })();
