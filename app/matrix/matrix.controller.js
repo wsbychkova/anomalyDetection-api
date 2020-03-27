@@ -13,27 +13,62 @@
             cities = covid.filter(city => city.province === 'Henan'
                 || city.province === 'Hubei'
                 || city.province === 'Guangdong'
-                || city.province === 'Guangdong'
+                || city.province === "Zhejiang"
             )
         }
 
-
-
-        console.log('cities :', cities);
         try {
 
-            const z_map = [];
+            const z_map = new Array(50).fill([])
+            const emptyX = new Array(30).fill(0)
+
+            console.log('emptyX :', emptyX);
+            const testX = []
             let x_map = []
-            let y_map = []
+                        
+            for (let i = 100; i < 131; i++) testX.push(i)
 
-            for (let i = 100; i < 130; i++) x_map.push(i.toString())
-            for (let i = 0; i < 50; i++) y_map.push(i.toString())
-
-            // z_map[0] = new Array(x_map.length)
-            for (let i = 0; 1< x_map.length; i++) {
-                z_map[0].push(0)
+            for (let i in z_map) {
+                z_map[i] = testX
             }
-            
+
+            z_map.map((os_y, index) => {
+                return cities.map(city => {
+                    const lat = Math.round(city.coordinates.lat);
+                    const long = Math.round(city.coordinates.long);
+                    if ((lat - 1) === index) {
+                        const arr1 = os_y.map((os_x, index) => {
+                            // console.log('long-1 :', long-1);
+                            // console.log('index :', index);
+                            if ((long - 1) === os_x) {
+                                return city.observed_data[0].value
+                            } else return 0
+                        })
+                        return arr1;
+                    }  else return  emptyX
+                })
+            })
+
+console.log('z_map :', z_map);
+
+            // console.log('testY :', testY);
+            // const arr = y_map.map((y) => {
+            //     return cities.map(city => {
+            //         if (Math.round(city.coordinates.lat) === y) {
+            //             return [city.observed_data[0].value]
+            //         } 
+            //     })
+            // })
+            // x_map.map((x) => {
+            //     if (Math.round(city.coordinates.long) === x) {
+            //         return city.observed_data[0].value
+            //         // testX.push(city.observed_data[0].value)
+            //     } else {
+            //         return 0
+            //     }
+            // })
+
+            // console.log('arr :', arr);
             // for (let key in z_map[0]) {
             //     console.log('z_map[0][key] :', z_map[0][key]);
             // }
@@ -42,7 +77,7 @@
             //     z_map[0][5] = 22;
             // })
 
-            console.log('z_map :', z_map);
+            // console.log('newmap :', newmap);
 
             var data = [
                 {
