@@ -48,7 +48,6 @@
   async function getCOVID(req, res, next) {
     try {
       const covid = await Covid.find();
-
       res.status(200).send(covid);
     } catch (err) {
       res.status(400).send(err);

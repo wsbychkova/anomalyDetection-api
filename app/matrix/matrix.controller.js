@@ -20,75 +20,37 @@
         try {
 
             const z_map = new Array(50).fill([])
-            const emptyX = new Array(30).fill(0)
-
-            console.log('emptyX :', emptyX);
-            const testX = []
-            let x_map = []
-                        
-            for (let i = 100; i < 131; i++) testX.push(i)
+            const emptyX = new Array(31).fill(0)
 
             for (let i in z_map) {
-                z_map[i] = testX
+                z_map[i] = emptyX
             }
 
-            z_map.map((os_y, index) => {
-                return cities.map(city => {
+            //z_map - Это полная матрица, состоящая из массивов (у) в массиве
+            //каждый у - это массив иксов. 
+            //1-е необходимо заполнить массив массивами из у
+            //Находим индекс в z равный lat. 
+
+            const newZ = z_map.map((y, index) => {
+                const citiesFilter = cities.filter(city => {
                     const lat = Math.round(city.coordinates.lat);
+                    if (lat === index + 1) return y;
+                }).map(city => {
                     const long = Math.round(city.coordinates.long);
-                    if ((lat - 1) === index) {
-                        const arr1 = os_y.map((os_x, index) => {
-                            // console.log('long-1 :', long-1);
-                            // console.log('index :', index);
-                            if ((long - 1) === os_x) {
-                                return city.observed_data[0].value
-                            } else return 0
-                        })
-                        return arr1;
-                    }  else return  emptyX
+                    return y.map((os_x, index) => (long === (index + 100)) ? city.observed_data[0].value : 0)
                 })
+                return citiesFilter.length !== 0 ? citiesFilter[0] : y
+
             })
-
-console.log('z_map :', z_map);
-
-            // console.log('testY :', testY);
-            // const arr = y_map.map((y) => {
-            //     return cities.map(city => {
-            //         if (Math.round(city.coordinates.lat) === y) {
-            //             return [city.observed_data[0].value]
-            //         } 
-            //     })
-            // })
-            // x_map.map((x) => {
-            //     if (Math.round(city.coordinates.long) === x) {
-            //         return city.observed_data[0].value
-            //         // testX.push(city.observed_data[0].value)
-            //     } else {
-            //         return 0
-            //     }
-            // })
-
-            // console.log('arr :', arr);
-            // for (let key in z_map[0]) {
-            //     console.log('z_map[0][key] :', z_map[0][key]);
-            // }
-            // z_map[0].map((item, index) => {
-            //     z_map[0][index] = 0;
-            //     z_map[0][5] = 22;
-            // })
-
-            // console.log('newmap :', newmap);
 
             var data = [
                 {
-                    z: z_map,
-                    x: x_map,
-                    y: y_map,
+                    z: newZ,
                     type: "surface"
                 }
             ];
             var layout = {
-                title: "Mt Bruno Elevation",
+                title: "Covid-19",
                 autosize: true,
                 width: '1000px',
                 height: '1000px'
@@ -97,7 +59,7 @@ console.log('z_map :', z_map);
             plotly.plot(data, graphOptions, function (err, msg) {
                 res.status(200).send(msg);
             });
-            console.log('plotly :', plotly);
+
         } catch (err) {
             res.status(400).send(err);
         }

@@ -83,6 +83,7 @@
 
   require("./app/covid/covid.route")(app);
   require("./app/matrix/matrix.route")(app);
+  require("./app/calculation/calculation.route")(app);
 
   const httpServer = http.createServer(app);
 
