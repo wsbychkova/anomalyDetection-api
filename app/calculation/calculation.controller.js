@@ -1,9 +1,7 @@
 (function () {
     "use strict";
     const server = require("../../server");
-    const moment = require("moment");
     const Covid = server.main.model("Covid");
-
 
     // Y = a+bx,
     // где х - это день (date) (зависимая)
@@ -11,8 +9,7 @@
     // a и b — коэффициенты регрессии оцененной линии
 
     function getCoeff_B(y_arr) {
-        const n = 10;
-        // const n = y_arr.length;
+        const n = 15;
         let coeff_B = 0;
         let sumXlnY = 0;
         let sumX = 0;
@@ -20,7 +17,7 @@
         let squareX = 0;
 
         y_arr.forEach((y, x) => {
-            if (x < 10) {
+            if (x < n) {
                 sumXlnY += x * Math.log(y);
                 sumX += x;
                 sumlnY += Math.log(y)
@@ -33,14 +30,13 @@
     }
 
     function getCoeff_A(y_arr, coeff_B) {
-        // const n = y_arr.length;
-        const n = 10;
+        const n = 15;
         let coeff_A = 0;
         let sumlnY = 0;
         let sumX = 0;
 
         y_arr.forEach((y, x) => {
-            if (x < 10) {
+            if (x < n) {
                 sumlnY += Math.log(y);
                 sumX += x;
             }
@@ -51,30 +47,66 @@
         return coeff_A;
     }
 
+    function getEstimation(y_arr, coeff_B, coeff_A) {
+        const n=15
+        let middleY = 0;
+        let correlationIndex= 0;
+        let sumYExp = 0
+        let sumYEps = 0
+        let approxModule = 0
+        let averageApproxError = 0
+        let f_criterion=0
+        y_arr.forEach((y, index) => {
+            if(index<n) {
+            middleY += y
+            }
+        })
+        middleY = middleY / n;
+
+        let eps = 0;
+        y_arr.forEach((y, x) => {
+            if (x<n){
+                const exp = Math.exp(coeff_A + coeff_B * x)
+
+                eps = Math.pow((y - middleY), 2)
+
+                sumYExp+=Math.pow((y-exp), 2)
+                sumYEps+=eps
+                approxModule+=Math.abs((y-exp)/y)
+            }
+        })
+
+        correlationIndex=Math.sqrt(1-(sumYExp/sumYEps))
+        averageApproxError=(1/n)*approxModule*100;
+
+        const k1=1;
+        const k2=13;
+        f_criterion = (Math.pow(correlationIndex,2)/(1-Math.pow(correlationIndex,2)))*(k2/k1)
+    }
+
 
     async function getRegression(req, res, next) {
         try {
-
-            const x_arr = [];
             const y_arr = []
             const covid = await Covid.find();
             const city = covid.filter(city => city.province === 'Hubei')
             if (city) {
                 city[0].observed_data.map((value, index) => {
-                    x_arr.push(index)
                     y_arr.push(value.value)
                 })
             }
-            // console.log('x_arr :', x_arr);
-            // console.log('y_arr :', y_arr);
+
             // Вычислим коэффициенты уравнения экспоненциальной регрессии
             const coeff_B = getCoeff_B(y_arr)
             const coeff_A = getCoeff_A(y_arr, coeff_B)
 
+            
             const regression = y_arr.map((y, x) => {
-                   const exp = Math.exp(coeff_A + coeff_B * x)
-                   return exp
+                const exp = Math.exp(coeff_A + coeff_B * x)
+                return exp
             })
+
+            getEstimation(y_arr, coeff_B, coeff_A)
 
             res.status(200).send(regression);
         } catch (err) {
