@@ -1,8 +1,8 @@
 (function () {
   "use strict";
 
-  const csvFilePath =
-    "/Users/elizavetabyckova/Downloads/disser/anomaly-detection-api/time_series_covid_19_confirmed.csv";
+  // const csvFilePath =
+  //   "/Users/elizavetabyckova/Downloads/disser/anomaly-detection-api/time_series_covid_19_confirmed.csv";
   const server = require("../../server");
   const csv = require("csvtojson");
   const moment = require("moment");
@@ -25,7 +25,7 @@
 
   async function parseCOVID(req, res, next) {
     try {
-      const covidFindings = await csv().fromFile(csvFilePath);
+      const covidFindings = await csv().fromFile('data/globalData.csv');
       const newCovidData = await Covid.create(
         covidFindings.map(covid => {
           const data = compareWithDateFormat(covid)
@@ -39,6 +39,7 @@
           }
         })
       )
+      console.log('newCovidData :>> ', newCovidData);
       res.status(200).send(newCovidData);
     } catch (err) {
       res.status(400).send(err);

@@ -1,0 +1,814 @@
+{
+    "regions": [
+        {
+            "federalDistrict": "Центральный",
+            "region": "Белгородская область",
+            "population": 1511620,
+            "administrativeCenter": "Белгород",
+            "coordinates": {
+                "lat": 50.59566,
+                "lng": 36.587223
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Брянская область",
+            "population": 1378941,
+            "administrativeCenter": "Брянск",
+            "coordinates": {
+                "lat": 53.243562,
+                "lng": 34.363443
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Владимирская область",
+            "population": 1523990,
+            "administrativeCenter": "Владимир",
+            "coordinates": {
+                "lat": 56.129057,
+                "lng": 40.406635
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Воронежская область",
+            "population": 2378803,
+            "administrativeCenter": "Воронеж",
+            "coordinates": {
+                "lat": 51.660781,
+                "lng": 39.200269
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Ивановская область",
+            "population": 1148329,
+            "administrativeCenter": "Иваново",
+            "coordinates": {
+                "lat": 57.000348,
+                "lng": 40.973921
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Калужская область",
+            "population": 1041641,
+            "administrativeCenter": "Калуга",
+            "coordinates": {
+                "lat": 54.513845,
+                "lng": 36.261215
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Костромская область",
+            "population": 736641,
+            "administrativeCenter": "Кострома",
+            "coordinates": {
+                "lat": 57.767961,
+                "lng": 40.926858
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Курская область",
+            "population": 1235091,
+            "administrativeCenter": "Курск",
+            "coordinates": {
+                "lat": 51.730361,
+                "lng": 36.192647
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Липецкая область",
+            "population": 1213499,
+            "administrativeCenter": "Липецк",
+            "coordinates": {
+                "lat": 52.60882,
+                "lng": 39.59922
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Москва",
+            "population": 10382754,
+            "administrativeCenter": "Москва",
+            "coordinates": {
+                "lat": 55.753215,
+                "lng": 37.622504
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Орловская область",
+            "population": 860262,
+            "administrativeCenter": "Орел",
+            "coordinates": {
+                "lat": 52.970371,
+                "lng": 36.063837
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Рязанская область",
+            "population": 1227910,
+            "administrativeCenter": "Рязань",
+            "coordinates": {
+                "lat": 54.629216,
+                "lng": 39.736375
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Смоленская область",
+            "population": 1049574,
+            "administrativeCenter": "Смоленск",
+            "coordinates": {
+                "lat": 54.782635,
+                "lng": 32.045251
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Тамбовская область",
+            "population": 1178443,
+            "administrativeCenter": "Тамбов",
+            "coordinates": {
+                "lat": 52.721219,
+                "lng": 41.452274
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Тверская область",
+            "population": 1471459,
+            "administrativeCenter": "Тверь",
+            "coordinates": {
+                "lat": 56.859611,
+                "lng": 35.911896
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Тульская область",
+            "population": 1675758,
+            "administrativeCenter": "Тула",
+            "coordinates": {
+                "lat": 54.193122,
+                "lng": 37.617348
+            }
+        },
+        {
+            "federalDistrict": "Центральный",
+            "region": "Ярославская область",
+            "population": 1367398,
+            "administrativeCenter": "Ярославль",
+            "coordinates": {
+                "lat": 57.626569,
+                "lng": 39.893787
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Архангельская область",
+            "population": 1336539,
+            "administrativeCenter": "Архангельск",
+            "coordinates": {
+                "lat": 64.539393,
+                "lng": 40.516939
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Вологодская область",
+            "population": 1269568,
+            "administrativeCenter": "Вологда",
+            "coordinates": {
+                "lat": 59.220496,
+                "lng": 39.891523
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Калининградская область",
+            "population": 955281,
+            "administrativeCenter": "Калининград",
+            "coordinates": {
+                "lat": 54.647708,
+                "lng": 21.071341
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Республика Карелия",
+            "population": 716281,
+            "administrativeCenter": "Петрозаводск",
+            "coordinates": {
+                "lat": 61.785017,
+                "lng": 34.346878
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Республика Коми",
+            "population": 1018674,
+            "administrativeCenter": "Сыктывкар",
+            "coordinates": {
+                "lat": 61.668793,
+                "lng": 50.836399
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Мурманская область",
+            "population": 892534,
+            "administrativeCenter": "Мурманск",
+            "coordinates": {
+                "lat": 68.970682,
+                "lng": 33.074981
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Ненецкий автономный округ",
+            "population": 41546,
+            "administrativeCenter": "Салехард",
+            "coordinates": {
+                "lat": 66.529844,
+                "lng": 66.614399
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Новгородская область",
+            "population": 694355,
+            "administrativeCenter": "Великий Новгород",
+            "coordinates": {
+                "lat": 55.603969,
+                "lng": 31.197214
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Псковская область",
+            "population": 760810,
+            "administrativeCenter": "Псков",
+            "coordinates": {
+                "lat": 57.81925,
+                "lng": 28.332065
+            }
+        },
+        {
+            "federalDistrict": "Северо-Западный",
+            "region": "Санкт-Петербург",
+            "population": 4661219,
+            "administrativeCenter": "Санкт-Петербург",
+            "coordinates": {
+                "lat": 59.939095,
+                "lng": 30.315868
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Республика Башкортостан",
+            "population": 4104336,
+            "administrativeCenter": "Уфа",
+            "coordinates": {
+                "lat": 54.735147,
+                "lng": 55.958727
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Кировская область",
+            "population": 1503529,
+            "administrativeCenter": "Киров",
+            "coordinates": {
+                "lat": 58.603581,
+                "lng": 49.667978
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Республика Марий Эл",
+            "population": "727979",
+            "administrativeCenter": "Йошкар-Ола",
+            "coordinates": {
+                "lat": 56.630842,
+                "lng": 47.886089
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Республика Мордовия",
+            "population": 888766,
+            "administrativeCenter": "Саранск",
+            "coordinates": {
+                "lat": 54.187433,
+                "lng": 45.183938
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Нижегородская область",
+            "population": 3524028,
+            "administrativeCenter": "Нижний Новгород",
+            "coordinates": {
+                "lat": 54.901233,
+                "lng": 99.026387
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Оренбургская область",
+            "population": 2179551,
+            "administrativeCenter": "Оренбург",
+            "coordinates": {
+                "lat": 51.768199,
+                "lng": 55.096955
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Пензенская область",
+            "population": 1452941,
+            "administrativeCenter": "Пенза",
+            "coordinates": {
+                "lat": 53.195063,
+                "lng": 45.018316
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Пермский край",
+            "population": 2633774,
+            "administrativeCenter": "Пермь",
+            "coordinates": {
+                "lat": 58.010374,
+                "lng": 56.229398
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Самарская область",
+            "population": 3239737,
+            "administrativeCenter": "Самара",
+            "coordinates": {
+                "lat": 53.195538,
+                "lng": 50.101783
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Саратовская область",
+            "population": 2668310,
+            "administrativeCenter": "Саратов",
+            "coordinates": {
+                "lat": 51.533103,
+                "lng": 46.034158
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Республика Татарстан",
+            "population": 3779265,
+            "administrativeCenter": "Казань",
+            "coordinates": {
+                "lat": 55.796289,
+                "lng": 49.108795
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Удмуртская Республика",
+            "population": 1570316,
+            "administrativeCenter": "Ижевск",
+            "coordinates": {
+                "lat": 56.852593,
+                "lng": 53.204843
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Ульяновская область",
+            "population": 1382811,
+            "administrativeCenter": "Ульяновск",
+            "coordinates": {
+                "lat": 54.314192,
+                "lng": 48.403123
+            }
+        },
+        {
+            "federalDistrict": "Приволжский",
+            "region": "Чувашская Республика",
+            "population": 1313754,
+            "administrativeCenter": "Чебоксары",
+            "coordinates": {
+                "lat": 56.146277,
+                "lng": 47.251079
+            }
+        },
+        {
+            "federalDistrict": "Уральский",
+            "region": "Курганская область",
+            "population": 1019532,
+            "administrativeCenter": "Курган",
+            "coordinates": {
+                "lat": 55.441004,
+                "lng": 65.341118
+            }
+        },
+        {
+            "federalDistrict": "Уральский",
+            "region": "Свердловская область",
+            "population": 4486214,
+            "administrativeCenter": "Екатеринбург",
+            "coordinates": {
+                "lat": 56.838011,
+                "lng": 60.597465
+            }
+        },
+        {
+            "federalDistrict": "Уральский",
+            "region": "Тюменская область",
+            "population": 3264841,
+            "administrativeCenter": "Тюмень",
+            "coordinates": {
+                "lat": 57.153033,
+                "lng": 65.534328
+            }
+        },
+        {
+            "federalDistrict": "Уральский",
+            "region": "Ханты-Мансийский автономный округ - Югра",
+            "population": 1432817,
+            "administrativeCenter": "Ханты-мансийск",
+            "coordinates": {
+                "lat": 61.00318,
+                "lng": 69.018902
+            }
+        },
+        {
+            "federalDistrict": "Уральский",
+            "region": "Челябинская область",
+            "population": 3603339,
+            "administrativeCenter": "Челябиннск",
+            "coordinates": {
+                "lat": 55.159897,
+                "lng": 61.402554
+            }
+        },
+        {
+            "federalDistrict": "Уральский",
+            "region": "Ямало-Ненецкий автономный округ",
+            "population": 507006,
+            "administrativeCenter": "Салехард",
+            "coordinates": {
+                "lat": 66.529844,
+                "lng": 66.614399
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Республика Алтай",
+            "population": 202947,
+            "administrativeCenter": "Горно-Алтайск",
+            "coordinates": {
+                "lat": 51.958182,
+                "lng": 85.960373
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Алтайский край",
+            "population": 2607426,
+            "administrativeCenter": "Барнаул",
+            "coordinates": {
+                "lat": 53.346785,
+                "lng": 83.776856
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Республика Бурятия",
+            "population": 981238,
+            "administrativeCenter": "Улан-Удэ",
+            "coordinates": {
+                "lat": 51.834464,
+                "lng": 107.584574
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Забайкальский край",
+            "population": 1082633,
+            "administrativeCenter": "Чита",
+            "coordinates": {
+                "lat": 52.033973,
+                "lng": 113.499432
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Иркутская область",
+            "population": 2581705,
+            "administrativeCenter": "Иркутск",
+            "coordinates": {
+                "lat": 52.287054,
+                "lng": 104.281047
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Кемеровская область",
+            "population": 2899142,
+            "administrativeCenter": "Кемерово",
+            "coordinates": {
+                "lat": 55.354727,
+                "lng": 86.088374
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Красноярский край",
+            "population": 2966042,
+            "administrativeCenter": "Красноярск",
+            "coordinates": {
+                "lat": 56.010563,
+                "lng": 92.852572
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Новосибирская область",
+            "population": 2692251,
+            "administrativeCenter": "Новосибирск",
+            "coordinates": {
+                "lat": 55.030199,
+                "lng": 82.92043
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Омская область",
+            "population": 2079220,
+            "administrativeCenter": "Омск",
+            "coordinates": {
+                "lat": 54.989342,
+                "lng": 73.368212
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Томская область",
+            "population": 1046039,
+            "administrativeCenter": "Томск",
+            "coordinates": {
+                "lat": 56.48464,
+                "lng": 84.947649
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Республика Тыва",
+            "population": 305510,
+            "administrativeCenter": "Кызыл",
+            "coordinates": {
+                "lat": 51.719086,
+                "lng": 94.437757
+            }
+        },
+        {
+            "federalDistrict": "Сибирский",
+            "region": "Республика Хакасия",
+            "population": 546072,
+            "administrativeCenter": "Абакан",
+            "coordinates": {
+                "lat": 53.721152,
+                "lng": 91.442387
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Амурская область",
+            "population": 902844,
+            "administrativeCenter": "Благовещенск",
+            "coordinates": {
+                "lat": 50.28702,
+                "lng": 127.541025
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Еврейская автономная область",
+            "population": 190915,
+            "administrativeCenter": "Биробиджан",
+            "coordinates": {
+                "lat": 48.794668,
+                "lng": 132.921754
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Камчатская область",
+            "population": 358801,
+            "administrativeCenter": "Петропавловск-Камчатский",
+            "coordinates": {
+                "lat": 53.024075,
+                "lng": 158.643566
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Магаданская область",
+            "population": 182726,
+            "administrativeCenter": "Магадан",
+            "coordinates": {
+                "lat": 59.568164,
+                "lng": 150.808541
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Приморский край",
+            "population": 2071210,
+            "administrativeCenter": "Владивосток",
+            "coordinates": {
+                "lat": 43.115536,
+                "lng": 131.885485
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Республика Саха (Якутия)",
+            "population": 949280,
+            "administrativeCenter": "Якутск",
+            "coordinates": {
+                "lat": 62.028103,
+                "lng": 129.732663
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Сахалинская область",
+            "population": 546695,
+            "administrativeCenter": "Южно-Сахалинск",
+            "coordinates": {
+                "lat": 46.959155,
+                "lng": 142.738023
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Хабаровский край",
+            "population": 1436570,
+            "administrativeCenter": "Хабаровск",
+            "coordinates": {
+                "lat": 48.480223,
+                "lng": 135.071917
+            }
+        },
+        {
+            "federalDistrict": "Дальневосточный",
+            "region": "Чукотский автономный округ",
+            "population": 53824,
+            "administrativeCenter": "Анадырь",
+            "coordinates": {
+                "lat": 64.733115,
+                "lng": 177.508924
+            }
+        },
+        {
+            "federalDistrict": "Южный",
+            "region": "Республика Адыгея",
+            "population": 447109,
+            "administrativeCenter": "Майкоп",
+            "coordinates": {
+                "lat": 44.608865,
+                "lng": 40.098548
+            }
+        },
+        {
+            "federalDistrict": "Южный",
+            "region": "Астраханская область",
+            "population": 1005276,
+            "administrativeCenter": "Астрахань",
+            "coordinates": {
+                "lat": 46.347869,
+                "lng": 48.033574
+            }
+        },
+        {
+            "federalDistrict": "Южный",
+            "region": "Волгоградская область",
+            "population": 2699223,
+            "administrativeCenter": "Волгоград",
+            "coordinates": {
+                "lat": 48.707073,
+                "lng": 44.51693
+            }
+        },
+        {
+            "federalDistrict": "Южный",
+            "region": "Республика Калмыкия",
+            "population": 292410,
+            "administrativeCenter": "Элиста",
+            "coordinates": {
+                "lat": 46.307743,
+                "lng": 44.269759
+            }
+        },
+        {
+            "federalDistrict": "Южный",
+            "region": "Краснодарский край",
+            "population": 5125221,
+            "administrativeCenter": "Краснодар",
+            "coordinates": {
+                "lat": 45.03547,
+                "lng": 38.975313
+            }
+        },
+        {
+            "federalDistrict": "Южный",
+            "region": "Ростовская область",
+            "population": 4404013,
+            "administrativeCenter": "Ростов",
+            "coordinates": {
+                "lat": 47.222078,
+                "lng": 39.720349
+            }
+        },
+        {
+            "federalDistrict": "Северо-Кавказский",
+            "region": "Республика Дагестан",
+            "population": 2576531,
+            "administrativeCenter": "Махачкала",
+            "coordinates": {
+                "lat": 42.98306,
+                "lng": 47.504682
+            }
+        },
+        {
+            "federalDistrict": "Северо-Кавказский",
+            "region": "Республика Ингушетия",
+            "population": 467294,
+            "administrativeCenter": "Магас",
+            "coordinates": {
+                "lat": 43.171501,
+                "lng": 44.81624
+            }
+        },
+        {
+            "federalDistrict": "Северо-Кавказский",
+            "region": "Кабардино - Балкарская Республика",
+            "population": 901494,
+            "administrativeCenter": "Нальчик",
+            "coordinates": {
+                "lat": 43.485259,
+                "lng": 43.607072
+            }
+        },
+        {
+            "federalDistrict": "Северо-Кавказский",
+            "region": "Карачаево - Черкесская Республика",
+            "population": 439470,
+            "administrativeCenter": "Черкесск",
+            "coordinates": {
+                "lat": 44.226863,
+                "lng": 42.04677
+            }
+        },
+        {
+            "federalDistrict": "Северо-Кавказский",
+            "region": "Республика Северная Осетия-Алания",
+            "population": 710275,
+            "administrativeCenter": "Владикавказ",
+            "coordinates": {
+                "lat": 43.02115,
+                "lng": 44.68196
+            }
+        },
+        {
+            "federalDistrict": "Северо-Кавказский",
+            "region": "Ставропольский край",
+            "population": 2735139,
+            "administrativeCenter": "Ставрополь",
+            "coordinates": {
+                "lat": 44.148599,
+                "lng": 43.473896
+            }
+        },
+        {
+            "federalDistrict": "Северо-Кавказский",
+            "region": "Чеченская Республика",
+            "population": 1103686,
+            "administrativeCenter": "Грозный",
+            "coordinates": {
+                "lat": 43.317776,
+                "lng": 45.694909
+            }
+        }
+    ]
+}

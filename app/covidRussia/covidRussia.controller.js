@@ -1,63 +1,52 @@
 (function () {
-    "use strict";
-  
-    const csvFilePath =
-      "/Users/elizavetabyckova/Downloads/disser/anomaly-detection-api/cities.csv";
-    const server = require("../../server");
-    const csv = require("csvtojson");
-    const moment = require("moment");
-    const Covid = server.main.model("Covid");
-  
-    // function compareWithDateFormat(date) {
-    //   const dateList = [];
-    //   for (let key in date) {
-    //     const time = moment(key).format();
-    //     if (time !== 'Invalid date') {
-    //       const dateObject = {
-    //         date: time,
-    //         value: Number(date[key])
-    //       }
-    //       dateList.push(dateObject)
-    //     }
-    //   }
-    //   return dateList;
-    // }
-  
-    async function parseCOVID(req, res, next) {
-      try {
-        const covidFindings = await csv().fromFile(csvFilePath);
-        console.log('covidFindings :>> ', covidFindings);
-        // const newCovidData = await Covid.create(
-        //   covidFindings.map(covid => {
-        //     // const data = compareWithDateFormat(covid)
-        //     const maxValue = Math.max.apply(Math, data.map((o) => o.value))
-        //     return {
-        //       province: covid['Province/State'],
-        //       country: covid['Country/Region'],
-        //       coordinates: { lat: covid['Lat'], long: covid['Long'] },
-        //       observed_data: data,
-        //       totalValue: maxValue
-        //     }
-        //   })
-        // )
-        // res.status(200).send(newCovidData);
-      } catch (err) {
-        res.status(400).send(err);
-      }
+  "use strict";
+
+  const server = require("../../server");
+  const csv = require("csvtojson");
+  const moment = require("moment");
+  const CovidRussia = server.main.model("CovidRussia");
+
+  async function parseCOVID(req, res, next) {
+    try {
+      const cityInfo = await csv().fromFile('data/Таблица_2020-05-25_15-42.csv');
+      const regions = await csv().fromFile('data/regions.csv');
+      const city = cityInfo.map(city => {
+        const date = moment(city['Дата'], 'DD.MM.YYYY').format();
+        for (let i = 0; i < regions.length; i++) {
+          if (city['Регион'] === regions[i].region) {
+            return {
+              region: city['Регион'],
+              general_city: regions[i].administrativeCenter,
+              coordinates: { lat: regions[i].coordinates__lat, lng: regions[i].coordinates__lng },
+              observed_date: date,
+              population: regions[i].population,
+              infected: city['Заражений'],
+              infectedPerDay: city['Заражений за день']
+            }
+
+          }
+        }
+      }).filter(city => city !== undefined)
+
+      const russiaInfo = await CovidRussia.create(city)
+
+      res.status(200).send(russiaInfo);
+    } catch (err) {
+      res.status(400).send(err);
     }
-  
-    async function getCOVID(req, res, next) {
-      try {
-        const covid = await Covid.find();
-        res.status(200).send(covid);
-      } catch (err) {
-        res.status(400).send(err);
-      }
+  }
+
+  async function getCOVID(req, res, next) {
+    try {
+      const covid = await CovidRussia.find();
+      res.status(200).send(covid);
+    } catch (err) {
+      res.status(400).send(err);
     }
-  
-    module.exports = {
-      parseCOVID,
-      getCOVID
-    };
-  })();
-  
+  }
+
+  module.exports = {
+    parseCOVID,
+    getCOVID
+  };
+})();

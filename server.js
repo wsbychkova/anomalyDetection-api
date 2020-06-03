@@ -13,6 +13,8 @@
   const config = require("./config/config.js");
   const modelsPath = __dirname + "/app/models/";
 
+  app.use(express.static(__dirname + '/public'));
+
   app.use(function (req, res, next) {
     var responseSettings = {
       AccessControlAllowOrigin: req.headers.origin,
@@ -84,6 +86,8 @@
   require("./app/covid/covid.route")(app);
   require("./app/matrix/matrix.route")(app);
   require("./app/calculation/calculation.route")(app);
+  require("./app/covidRussia/covidRussia.route")(app);
+  require("./app/machine_learning/machine_learning.route")(app);
 
   const httpServer = http.createServer(app);
 
