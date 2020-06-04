@@ -9,34 +9,80 @@
     var svm = new jssvm.BinarySvmClassifier();
     iris.shuffle();
 
-    const data = [
-        [   ]
+    // const dataColumns = ['infected', 'testsCount', 'testsApplication']
+    const exampleData = [{
+        region: 'Москва',
+        observed_date: new Date('2020-04-10T21:00:00.000Z'),
+        population: 10382754,
+        infected: 2,
+        tests: 15
+        // tourists: 15
+    },
+    {
+        region: 'Москва',
+        observed_date: new Date('2020-04-11T21:00:00.000Z'),
+        population: 10382754,
+        infected: 4,
+        tests: 15
+        // tourists: 15
+    },
+    {
+        region: 'Москва',
+        observed_date: new Date('2020-04-12T21:00:00.000Z'),
+        population: 10382754,
+        infected: 100,
+        tests: 15
+        // tourists: 15
+    },
+    ]
+    // infected = infected by current day / infected by previous day
+    // infectionCoefficient = infected/tourists
+    // testsApplication = infected/tests
+
+    // tests = 15/
+    const trainingData = [
+        [2, 15, 0.1333, 0],
+        [4, 16, 0.2667, 0],
+        [100, 13, 6.6667, 1],
+        [2, 13, 0.1538, 0],
+        [87, 100, 0.87, 1],
+        [95, 14, 6.7856, 1],
     ]
 
-    var trainingDataSize = Math.round(iris.rowCount * 0.9);// 135
-    var trainingData = [];
-    var testingData = [];
+    const testingData = [
+        [2, 15, 0.1333, 0],
+        [85, 99, 0.8585, 1],
+        [100, 13, 6.6667, 1],
+        []
+    ]
+
+
+    // var trainingDataSize = Math.round(iris.rowCount * 0.9);// 135
+    // var trainingData = [];
+    // var testingData = [];
 
 
     async function train(req, res, next) {
         try {
-            console.log('iris :>> ', iris);
+            // console.log('example :>> ', example);
+
+            // console.log('iris :>> ', iris);
             //rowCount = 150
-            for (var i = 0; i < iris.rowCount; ++i) {
-                var row = [];
-                row.push(iris.data[i][0]); // sepalLength;
-                row.push(iris.data[i][1]); // sepalWidth;
-                row.push(iris.data[i][2]); // petalLength;
-                row.push(iris.data[i][3]); // petalWidth;
-                row.push(iris.data[i][4] == "Iris-virginica" ? 1.0 : 0.0); // output which is 1 if species is Iris-virginica; 0 otherwise
-                if (i < trainingDataSize) {
-                    trainingData.push(row);
-                } else {
-                    testingData.push(row);
-                }
-            }
-            console.log('trainingData :>> ', trainingData);
-            console.log('testingData :>> ', testingData);
+            // for (var i = 0; i < iris.rowCount; ++i) {
+            //     var row = [];
+            //     row.push(iris.data[i][0]); // sepalLength;
+            //     row.push(iris.data[i][1]); // sepalWidth;
+            //     row.push(iris.data[i][2]); // petalLength;
+            //     row.push(iris.data[i][3]); // petalWidth;
+            //     row.push(iris.data[i][4] == "Iris-virginica" ? 1.0 : 0.0); // output which is 1 if species is Iris-virginica; 0 otherwise
+            //     if (i < trainingDataSize) {
+            //         trainingData.push(row);
+            //     } else {
+            //         testingData.push(row);
+            //     }
+            // }
+            // console.log('trainingData :>> ', trainingData);
+            // console.log('testingData :>> ', testingData);
 
             var result = svm.fit(trainingData);
 
@@ -44,7 +90,7 @@
 
             for (var i = 0; i < testingData.length; ++i) {
                 var predicted = svm.transform(testingData[i]);
-                console.log("actual: " + testingData[i][4] + " predicted: " + predicted);
+                console.log("actual: " + testingData[i][3] + " predicted: " + predicted);
             }
             // const covid = await CovidRussia.find();
 
