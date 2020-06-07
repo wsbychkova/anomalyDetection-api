@@ -8,6 +8,7 @@
     var jssvm = require('js-svm');
     var svm = new jssvm.BinarySvmClassifier();
     iris.shuffle();
+    const csv = require("csvtojson");
 
     // const dataColumns = ['infected', 'testsCount', 'testsApplication']
     const exampleData = [{
@@ -35,35 +36,59 @@
         // tourists: 15
     },
     ]
-    // infected = infected by current day / infected by previous day
+    // infected = infected by current day - infected by previous day
     // infectionCoefficient = infected/tourists
     // testsApplication = infected/tests
 
     // tests = 15/
-    const trainingData = [
-        [2, 15, 0.1333, 0],
-        [4, 16, 0.2667, 0],
-        [100, 13, 6.6667, 1],
-        [2, 13, 0.1538, 0],
-        [87, 100, 0.87, 1],
-        [95, 14, 6.7856, 1],
-    ]
+    // const trainingData = [
+    //     [2, 15, 0.1333, 0],
+    //     [4, 16, 0.2667, 0],
+    //     [100, 13, 6.6667, 1],
+    //     [2, 13, 0.1538, 0],
+    //     [87, 100, 0.87, 1],
+    //     [95, 14, 6.7856, 1],
+    // ]
 
-    const testingData = [
-        [2, 15, 0.1333, 0],
-        [85, 99, 0.8585, 1],
-        [100, 13, 6.6667, 1],
-        []
-    ]
+    /* 
+        Если 
+    */
+
+    // const testingData = [
+    //     [2, 15, 0.1333, 0],
+    //     [85, 99, 0.8585, 1],
+    //     [100, 13, 6.6667, 1],
+    //     []
+    // ]
 
 
     // var trainingDataSize = Math.round(iris.rowCount * 0.9);// 135
-    // var trainingData = [];
-    // var testingData = [];
+    var trainingData = [];
+    var testingData = [];
 
 
     async function train(req, res, next) {
         try {
+            const cities = await csv().fromFile('data/owid-covid-data.csv');
+            if (cities) {
+
+                const tests = cities.filter(city => city.location === 'Russia');
+                tests.forEach(test => {
+                    const newTests = Number(test.new_tests)
+                    const newCases = Number(test.new_cases)
+                    let row = [];
+                    row.push(newTests)
+                    row.push(newCases)
+                    row.push(newTests === 0 ? 0 : newCases / newTests)
+                    console.log('date :>> ', test.date);
+                    console.log('total_cases :>> ', test.total_cases);
+                    console.log('new_cases: :>> ', test.new_cases);
+                    console.log('total_tests: :>> ', test.total_tests);
+                    console.log('new_tests: :>> ', test.new_tests);
+                    console.log('row :>> ', row);
+                })
+            }
+
             // console.log('example :>> ', example);
 
             // console.log('iris :>> ', iris);
@@ -84,14 +109,14 @@
             // console.log('trainingData :>> ', trainingData);
             // console.log('testingData :>> ', testingData);
 
-            var result = svm.fit(trainingData);
+            // var result = svm.fit(trainingData);
 
-            console.log(result);
+            // console.log(result);
 
-            for (var i = 0; i < testingData.length; ++i) {
-                var predicted = svm.transform(testingData[i]);
-                console.log("actual: " + testingData[i][3] + " predicted: " + predicted);
-            }
+            // for (var i = 0; i < testingData.length; ++i) {
+            //     var predicted = svm.transform(testingData[i]);
+            //     console.log("actual: " + testingData[i][3] + " predicted: " + predicted);
+            // }
             // const covid = await CovidRussia.find();
 
             // let cities = []
