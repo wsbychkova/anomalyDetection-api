@@ -73,20 +73,34 @@
             if (cities) {
 
                 const tests = cities.filter(city => city.location === 'Russia');
-                tests.forEach(test => {
+                const data = tests.map((test, index) => {
                     const newTests = Number(test.new_tests)
                     const newCases = Number(test.new_cases)
+
                     let row = [];
-                    row.push(newTests)
-                    row.push(newCases)
-                    row.push(newTests === 0 ? 0 : newCases / newTests)
-                    console.log('date :>> ', test.date);
-                    console.log('total_cases :>> ', test.total_cases);
-                    console.log('new_cases: :>> ', test.new_cases);
-                    console.log('total_tests: :>> ', test.total_tests);
-                    console.log('new_tests: :>> ', test.new_tests);
-                    console.log('row :>> ', row);
+                    if (index < 100) {
+                        row.push(newTests)
+                        row.push(newCases)
+                        row.push(newTests === 0 ? 0 : newCases / newTests)
+                        if (newCases  && !newTests ) {
+                            row.push(1.0)
+                        } else {
+                            row.push(0.0)
+                        }
+                    } else {
+                        
+                    }
+
+                    return row;
+                    // console.log('date :>> ', test.date);
+                    // console.log('total_cases :>> ', test.total_cases);
+                    // console.log('new_cases: :>> ', test.new_cases);
+                    // console.log('total_tests: :>> ', test.total_tests);
+                    // console.log('new_tests: :>> ', test.new_tests);
+                    // console.log('row :>> ', row);
                 })
+console.log('tests :>> ', tests.length);
+                console.log('data :>> ', data);
             }
 
             // console.log('example :>> ', example);
