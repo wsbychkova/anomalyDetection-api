@@ -35,14 +35,14 @@
     //     [0, 8985, 0, 1]
     // ];
     var trainingData = [
-        [0, 100, 0, 1],
-        [0, 1000, 0, 1],
-        [0, 2000, 0, 1],
-        [0, 15, 0, 1],
-        [333333, 20, 0.02780401685960535, 0],
-        [4000, 20000, 0.02780401685960535, 1],
-        [5000, 21000, 0.02780401685960535, 0],
-        [5000, 20, 0.02780401685960535, 1],
+        [0, 100, 0, 0, 1],
+        [0, 1000, 0, 0, 1],
+        [0, 2000, 0, 0, 1],
+        [0, 100, 0, 0, 1],
+        [200, 2000, 0, 200, 1],
+        // [0, 15, 0, 300, 1]
+        [333, 4444, 0.02780401685960535, 10, 1]
+
     ];
     var testingData = [];
 
@@ -81,14 +81,25 @@
                     row.push(newTests)
                     row.push(newCases)
                     row.push(newTests === 0 ? 0 : newCases / newTests)
+                    row.push(casesDiffDay ? casesDiffDay : 0)
 
-                    if ((newCases && !newTests) || (casesDiffDay && casesDiffDay > 150)) {
+                    if (
+                        (newCases && !newTests)
+                        || (newCases > newTests)
+                        || (casesDiffDay > 8)
+                    ) {
+                        console.log('casesDiffDay :>> ', casesDiffDay);
                         row.push(1.0)
                     } else {
                         row.push(0.0)
                     }
+                    // test if infected more then tests
                     if (i === 144) {
-                        row = [333333, 20, 0.02780401685960535, 1]
+                        row = [333, 4444, 0.02780401685960535, 0, 1]
+                    }
+                    // test if casesDiffDay more then 150
+                    if (i === 145) {
+                        row = [335, 111, 0.02780401685960535, 160, 1]
                     }
                     if (i < 120) {
                         trainingData.push(row)
@@ -107,7 +118,7 @@
             // console.log(result);
             testingData.forEach(data => {
                 var predicted = svm.transform(data);
-                console.log("actual: " + data[3] + " predicted: " + predicted);
+                console.log("actual: " + data[4] + " predicted: " + predicted);
             })
 
 
