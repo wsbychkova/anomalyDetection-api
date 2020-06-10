@@ -1,45 +1,27 @@
 (function () {
   "use strict";
 
-  // const csvFilePath =
-  //   "/Users/elizavetabyckova/Downloads/disser/anomaly-detection-api/time_series_covid_19_confirmed.csv";
   const server = require("../../server");
   const csv = require("csvtojson");
   const moment = require("moment");
   const Covid = server.main.model("Covid");
 
-  function compareWithDateFormat(date) {
-    const dateList = [];
-    for (let key in date) {
-      const time = moment(key).format();
-      if (time !== 'Invalid date') {
-        const dateObject = {
-          date: time,
-          value: Number(date[key])
-        }
-        dateList.push(dateObject)
-      }
-    }
-    return dateList;
-  }
-
   async function parseCOVID(req, res, next) {
     try {
-      const covidFindings = await csv().fromFile('data/globalData.csv');
-      const newCovidData = await Covid.create(
-        covidFindings.map(covid => {
-          const data = compareWithDateFormat(covid)
-          const maxValue = Math.max.apply(Math, data.map((o) => o.value))
-          return {
-            province: covid['Province/State'],
-            country: covid['Country/Region'],
-            coordinates: { lat: covid['Lat'], long: covid['Long'] },
-            observed_data: data,
-            totalValue: maxValue
-          }
+      const cities = await csv().fromFile('data/owid-covid-data.csv');
+      const covidFindings = cities.filter(city => city.location === 'Russia');
+      const result = [];
+      for (let i = 72; i < covidFindings.length; i++) {
+        result.push({
+          location: covidFindings[i].location,
+          date: new Date(covidFindings[i].date),
+          new_cases: Number(covidFindings[i].new_cases),
+          total_cases: Number(covidFindings[i].total_cases),
+          new_tests: Number(covidFindings[i].new_tests),
+          total_tests: Number(covidFindings[i].total_tests)
         })
-      )
-      console.log('newCovidData :>> ', newCovidData);
+      }
+      const newCovidData = await Covid.create(result)
       res.status(200).send(newCovidData);
     } catch (err) {
       res.status(400).send(err);
