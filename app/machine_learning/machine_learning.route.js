@@ -4,7 +4,8 @@
     let machineLearning = require("./machine_learning.controller");
   
     module.exports = function(app) {
-      app.get("/api/machine_learning", machineLearning.train);
+      app.get("/api/svm_train", machineLearning.svmTrain);
+      app.get("/api/random_forest_train", machineLearning.randomForestTrain);
     };
   })();
   

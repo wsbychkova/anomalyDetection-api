@@ -21,6 +21,8 @@
     "mongoose": "^5.9.5",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2",
-    "plotly": "^1.0.6"
+    "pca-js": "^1.0.2",
+    "plotly": "^1.0.6",
+    "random-forest-classifier": "^0.6.0"
   }
 }
