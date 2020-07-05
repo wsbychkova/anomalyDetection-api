@@ -6,6 +6,7 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
+    "brain": "^1.0.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
@@ -15,7 +16,9 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "js-datasets-iris": "^1.0.4",
+    "js-regression": "^1.0.10",
     "js-svm": "^1.0.4",
+    "ml-knn": "^3.0.0",
     "ml-svm": "^2.1.2",
     "moment": "^2.24.0",
     "mongoose": "^5.9.5",
@@ -23,6 +26,8 @@
     "nodemon": "^2.0.2",
     "pca-js": "^1.0.2",
     "plotly": "^1.0.6",
-    "random-forest-classifier": "^0.6.0"
+    "random-forest-classifier": "^0.6.0",
+    "regression": "^2.0.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
